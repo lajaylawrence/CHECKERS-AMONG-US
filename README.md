@@ -1,4 +1,4 @@
-# CHECKERS-AMONG-US. 
+# CHECKERS-AMONG-US.
 
 ## Topic: Checkers:
 Goals
