@@ -1,4 +1,4 @@
-# CHECKERS-AMONG-US. lajas
+# CHECKERS-AMONG-US. 
 
 ## Topic: Checkers:
 Goals
