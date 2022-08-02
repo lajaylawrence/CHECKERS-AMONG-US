@@ -15,6 +15,8 @@ BLACK = (0, 0, 0)
 BLUE = (0, 0, 255)
 GREY = (128, 128, 128)
 
+CROWN = pygame.transform.scale(pygame.image.load('assets/crown.png'), (44, 25))
+
 #*********************START UP PAGES CONSTANTS ************************
 
 STARTPAGE_BK = pygame.image.load("images/startbackgound.png")
