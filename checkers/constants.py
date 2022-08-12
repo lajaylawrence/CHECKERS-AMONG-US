@@ -46,3 +46,7 @@ QUITE_BTN = startpage.button.Button(350, 650, QUIT_IMG, 1)
 ORANGE_BTN = startpage.button.Button(100, 400, ORANGE_IMG, 1)
 BLUE_BTN = startpage.button.Button(350, 400, BLUE_IMG, 1)
 WHITE_BTN = startpage.button.Button(600, 400, WHITE_IMG, 1)
+
+# Set Piece Graphics ==========================
+ORANGE_PLAYER = pygame.transform.scale(pygame.image.load('assets/orangeplayer_ingame.png'), (64, 85))
+PINK_PLAYER = pygame.transform.scale(pygame.image.load('assets/pinkplayer_ingame.png'), (64, 85))
