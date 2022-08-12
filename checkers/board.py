@@ -1,5 +1,5 @@
 import pygame
-from .constants import BLACK, BLUE, ROWS, SQUARE_SIZE, COLS, WHITE, PINK
+from .constants import *
 from .piece import Piece
 
 
@@ -24,7 +24,7 @@ class Board:
 
         if row == ROWS - 1 or row == 0:
             piece.make_king()
-            if piece.color == BLUE:
+            if piece.image == ORANGE_PLAYER:
                 self.blue_kings += 1
             else:
                 self.pink_kings += 1
@@ -38,9 +38,9 @@ class Board:
             for col in range(COLS):
                 if col % 2 == ((row + 1) % 2):
                     if row < 3:
-                        self.board[row].append(Piece(row, col, BLUE))
+                        self.board[row].append(Piece(row, col, ORANGE_PLAYER))
                     elif row > 4:
-                        self.board[row].append(Piece(row, col, PINK))
+                        self.board[row].append(Piece(row, col, PINK_PLAYER))
                     else:
                         self.board[row].append(0)
                 else:
@@ -60,7 +60,7 @@ class Board:
         for piece in pieces:
             self.board[piece.row][piece.col] = 0
             if piece != 0:
-                if piece.color == PINK:
+                if piece.image == PINK_PLAYER :
                     self.pink_left -= 1
                 else:
                     self.blue_left -= 1
@@ -81,17 +81,17 @@ class Board:
         row = piece.row
 
         #check if piece can be moved up or down base on the color or if king piece
-        if piece.color == PINK or piece.king:
-            moves.update(self._traverse_left(row -1, max(row-3, -1), -1, piece.color, left))
-            moves.update(self._traverse_right(row -1, max(row-3, -1), -1, piece.color, right))
-        if piece.color == BLUE or piece.king:
-            moves.update(self._traverse_left(row +1, min(row+3, ROWS), 1, piece.color, left))
-            moves.update(self._traverse_right(row +1, min(row+3, ROWS), 1, piece.color, right))
+        if piece.image == PINK_PLAYER or piece.king:
+            moves.update(self._traverse_left(row -1, max(row-3, -1), -1, piece.image, left))
+            moves.update(self._traverse_right(row -1, max(row-3, -1), -1, piece.image, right))
+        if piece.image == ORANGE_PLAYER or piece.king:
+            moves.update(self._traverse_left(row +1, min(row+3, ROWS), 1, piece.image, left))
+            moves.update(self._traverse_right(row +1, min(row+3, ROWS), 1, piece.image, right))
 
         return moves
     
     #check left diagonal of board for valid position to move piece to 
-    def _traverse_left(self, start, stop, step, color, left, skipped = []):
+    def _traverse_left(self, start, stop, step, image, left, skipped = []):
         moves = {}
         last = []
         for r in range(start, stop, step):
@@ -112,10 +112,10 @@ class Board:
                         row = max(r-3, 0)
                     else:
                         row = min(r+3, ROWS)
-                    moves.update(self._traverse_left(r+step, row, step, color, left-1, skipped=last))
-                    moves.update(self._traverse_right(r+step, row, step, color, left+1, skipped=last))
+                    moves.update(self._traverse_left(r+step, row, step, image, left-1, skipped=last))
+                    moves.update(self._traverse_right(r+step, row, step, image, left+1, skipped=last))
                 break
-            elif current.color == color:
+            elif current.image == image:
                 break
             else: 
                 last = [current]
@@ -125,7 +125,7 @@ class Board:
         return moves
 
 #check right diagonal of board for valid position to move piece to 
-    def _traverse_right(self, start, stop, step, color, right, skipped = []):
+    def _traverse_right(self, start, stop, step, image, right, skipped = []):
         moves = {}
         last = []
         for r in range(start, stop, step):
@@ -146,10 +146,10 @@ class Board:
                         row = max(r-3, 0)
                     else:
                         row = min(r+3, ROWS)
-                    moves.update(self._traverse_left(r+step, row, step, color, right-1, skipped=last))
-                    moves.update(self._traverse_right(r+step, row, step, color, right+1, skipped=last))
+                    moves.update(self._traverse_left(r+step, row, step, image, right-1, skipped=last))
+                    moves.update(self._traverse_right(r+step, row, step, image, right+1, skipped=last))
                 break
-            elif current.color == color:
+            elif current.image == image:
                 break
             else: 
                 last = [current]
