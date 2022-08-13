@@ -22,11 +22,15 @@ def Piece_menu():
         #print button
         if game_paused == False:
              if ORANGE_BTN.draw(SCREEN):
-                pass #generate player screen
+                PIECE = ORANGE_PLAYER
+                return PIECE
              if BLUE_BTN.draw(SCREEN):
-                pass #main()
+                PIECE = BLUE_PLAYER
+                return PIECE
              if WHITE_BTN.draw(SCREEN):
-                pygame.quit()
+                PIECE = WHITE_PLAYER
+                return PIECE
+                #pygame.quit()
              #if QUITE_BTN.draw(SCREEN):
                 #run = False  #this currently end the start screen but need to end entire game
         else:

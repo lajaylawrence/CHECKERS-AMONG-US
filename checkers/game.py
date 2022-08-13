@@ -64,6 +64,6 @@ class Game:
     def change_turn(self):
         self.valid_moves = {}
         if self.turn == PINK_PLAYER:
-            self.turn = ORANGE_PLAYER
+            self.turn = BLUE_PLAYER
         else:
             self.turn = PINK_PLAYER

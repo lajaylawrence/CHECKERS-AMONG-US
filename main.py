@@ -1,4 +1,4 @@
-import pygame
+import pygame, random
 from checkers.game import Game
 from checkers.constants import *
 from checkers.board import Board
@@ -16,6 +16,15 @@ def get_row_col_from_mouse(pos):
     col = x // SQUARE_SIZE
     return row, col  
 
+def Select_players():
+        PLAYER1 = Piece_menu()
+        if PLAYER1 == ORANGE_PLAYER:
+            PLAYER2 = random.choice(WHITE_IMG, BLUE_PLAYER)
+        if PLAYER1 == BLUE_PLAYER:
+            PLAYER2 = random.choice(ORANGE_PLAYER, WHITE_PLAYER)
+        if PLAYER1 == WHITE_PLAYER:
+            PLAYER2 = random.choice(ORANGE_PLAYER, BLUE_PLAYER)
+            
 def main():
 
     #game variables
@@ -30,11 +39,13 @@ def main():
         
         #print button
         if game_paused == False:
-             if SELECPLAYER_BTN.draw(SCREEN):
-                Piece_menu()
+             #if SELECPLAYER_BTN.draw(SCREEN):
+                #Piece_menu()
+                #run_startpage = False
              if LEVELS_BTN.draw(SCREEN):
                 game_paused = True
              if PLAY_BTN.draw(SCREEN):
+                Piece_menu()
                 run_startpage = False
              if QUITE_BTN.draw(SCREEN):
                 pygame.quit()  
