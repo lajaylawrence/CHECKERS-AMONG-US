@@ -1,3 +1,4 @@
+from operator import truediv
 import pygame
 from .constants import PINK, BLUE, SQUARE_SIZE, GREY, CROWN
 
@@ -26,11 +27,11 @@ class Piece:
     #this creates the players
     def draw(self, win):
         radius = SQUARE_SIZE//2 - self.PADDING
-        win.blit(self.image, (self.x, self.y))
+        win.blit(self.image, (self.x, self.y + 11))
         # pygame.draw.circle(win, GREY, (self.x, self.y), radius + self.OUTLINE) #larger cirle
         # pygame.draw.circle(win, self.color, (self.x, self.y), radius) #smaller circle
-        # if self.king:
-        #     win.blit(CROWN, (self.x - CROWN.get_width()//2, self.y - CROWN.get_height()//2))
+        if self.king:
+            win.blit(CROWN, (self.x + 7, self.y - 15))
 
     def move(self, row, col):
         self.row = row
