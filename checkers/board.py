@@ -3,6 +3,7 @@ from .constants import *
 from .piece import Piece
 
 
+
 class Board:
     def __init__(self):
         self.board = []
@@ -25,7 +26,7 @@ class Board:
 
         if row == ROWS - 1 or row == 0:
             piece.make_king()
-            if piece.image == ORANGE_PLAYER:
+            if piece.image == PLAYERS[0]:
                 self.blue_kings += 1
             else:
                 self.pink_kings += 1
@@ -39,9 +40,9 @@ class Board:
             for col in range(COLS):
                 if col % 2 == ((row + 1) % 2):
                     if row < 3:
-                        self.board[row].append(Piece(row, col, ORANGE_PLAYER))
+                        self.board[row].append(Piece(row, col, PLAYERS[0]))
                     elif row > 4:
-                        self.board[row].append(Piece(row, col, PINK_PLAYER))
+                        self.board[row].append(Piece(row, col, PLAYERS[1]))
                     else:
                         self.board[row].append(0)
                 else:
@@ -61,7 +62,7 @@ class Board:
         for piece in pieces:
             self.board[piece.row][piece.col] = 0
             if piece != 0:
-                if piece.image == PINK_PLAYER :
+                if piece.image == PLAYERS[1] :
                     self.pink_left -= 1
                 else:
                     self.blue_left -= 1
@@ -82,10 +83,10 @@ class Board:
         row = piece.row
 
         #check if piece can be moved up or down base on the color or if king piece
-        if piece.image == PINK_PLAYER or piece.king:
+        if piece.image == PLAYERS[1] or piece.king:
             moves.update(self._traverse_left(row -1, max(row-3, -1), -1, piece.image, left))
             moves.update(self._traverse_right(row -1, max(row-3, -1), -1, piece.image, right))
-        if piece.image == ORANGE_PLAYER or piece.king:
+        if piece.image == PLAYERS[0] or piece.king:
             moves.update(self._traverse_left(row +1, min(row+3, ROWS), 1, piece.image, left))
             moves.update(self._traverse_right(row +1, min(row+3, ROWS), 1, piece.image, right))
 

@@ -1,6 +1,7 @@
 import pygame
 from .constants import *
 from checkers.board import Board
+from startpage.startwindow import main_menu 
 
 class Game:
     def __init__(self, win):
@@ -63,7 +64,7 @@ class Game:
 
     def change_turn(self):
         self.valid_moves = {}
-        if self.turn == PINK_PLAYER:
-            self.turn = BLUE_PLAYER
+        if self.turn == PLAYERS[1]:
+            self.turn = PLAYERS[0]
         else:
-            self.turn = PINK_PLAYER
+            self.turn = PLAYERS[1]
