@@ -1,6 +1,8 @@
 import pygame
 import startpage.button  
 pygame.font.init()
+#from startpage.startwindow import PLAYERS 
+#from main import PLAYERS
 
 WIDTH, HEIGHT = 800, 800
 ROWS, COLS = 8, 8
@@ -39,6 +41,7 @@ QUIT_IMG = pygame.image.load("images/quitbtn.png").convert_alpha()
 ORANGE_IMG = pygame.image.load("images/orangeplayer.png").convert_alpha()
 BLUE_IMG = pygame.image.load("images/blueplayer.png").convert_alpha()
 WHITE_IMG = pygame.image.load("images/whiteplayer.png").convert_alpha()
+PINK_IMG = pygame.image.load("images/pinkplayer.png").convert_alpha()
 
 
 #create button instances
@@ -46,12 +49,15 @@ SELECPLAYER_BTN = startpage.button.Button(350, 350, SELECPLAYER_IMG, 1)
 LEVELS_BTN = startpage.button.Button(350, 450, LEVELS_IMG, 1)
 PLAY_BTN = startpage.button.Button(350, 550, PLAY_IMG, 1)
 QUITE_BTN = startpage.button.Button(350, 650, QUIT_IMG, 1)
-ORANGE_BTN = startpage.button.Button(100, 400, ORANGE_IMG, 1)
-BLUE_BTN = startpage.button.Button(350, 400, BLUE_IMG, 1)
-WHITE_BTN = startpage.button.Button(600, 400, WHITE_IMG, 1)
+ORANGE_BTN = startpage.button.Button(80, 400, ORANGE_IMG, 1)
+BLUE_BTN = startpage.button.Button(255, 400, BLUE_IMG, 1)
+WHITE_BTN = startpage.button.Button(430, 400, WHITE_IMG, 1)
+PINK_BTN = startpage.button.Button(605, 400, PINK_IMG, 1)
 
 # Set Piece Graphics ==========================
 ORANGE_PLAYER = pygame.transform.scale(pygame.image.load('assets/orangeplayer_ingame.png'), (64, 85))
 PINK_PLAYER = pygame.transform.scale(pygame.image.load('assets/pinkplayer_ingame.png'), (64, 85))
+BLUE_PLAYER = pygame.transform.scale(pygame.image.load('images/blue.png'), (64, 85))
+WHITE_PLAYER = pygame.transform.scale(pygame.image.load('images/white.png'), (64, 85))
 
-
+PLAYERS = []
