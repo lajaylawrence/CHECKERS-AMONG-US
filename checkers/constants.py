@@ -57,7 +57,7 @@ PINK_BTN = startpage.button.Button(605, 400, PINK_IMG, 1)
 # Set Piece Graphics ==========================
 ORANGE_PLAYER = pygame.transform.scale(pygame.image.load('assets/orangeplayer_ingame.png'), (64, 85))
 PINK_PLAYER = pygame.transform.scale(pygame.image.load('assets/pinkplayer_ingame.png'), (64, 85))
-BLUE_PLAYER = pygame.transform.scale(pygame.image.load('images/blue.png'), (64, 85))
-WHITE_PLAYER = pygame.transform.scale(pygame.image.load('images/white.png'), (64, 85))
+BLUE_PLAYER = pygame.transform.scale(pygame.image.load('assets/blueplayer_ingame.png'), (64, 85))
+WHITE_PLAYER = pygame.transform.scale(pygame.image.load('assets/whiteplayer_ingame.png'), (64, 85))
 
 PLAYERS = []
