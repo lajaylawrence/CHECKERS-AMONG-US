@@ -1,8 +1,8 @@
-import pygame, random
+import pygame
 from checkers.game import Game
 from checkers.constants import *
 from checkers.board import Board
-from startpage.startwindow import main_menu
+from startpage.startwindow import Piece_menu, main_menu
 from startpage.button  import Button
 
 FPS = 60
@@ -15,13 +15,10 @@ def get_row_col_from_mouse(pos):
     row = y // SQUARE_SIZE  
     col = x // SQUARE_SIZE
     return row, col  
-    
-              
+
 def main():
 
-    #game variables
     main_menu()
-
 
     run = True
     clock = pygame.time.Clock() 
