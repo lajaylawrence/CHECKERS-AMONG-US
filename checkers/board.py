@@ -69,9 +69,9 @@ class Board:
 
     def winner(self):
         if self.pink_left <= 0:
-            return BLUE
+            return PLAYERS[1]
         elif self.blue_left <= 0:
-            return PINK
+            return PLAYERS[0]
 
         return None
     
