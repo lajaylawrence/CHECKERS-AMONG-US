@@ -1,6 +1,9 @@
 import pygame
 from .constants import *
 from .piece import Piece
+from checkers.winnersPage import winning_menu
+# from .game import Game
+# from startpage.startwindow import Select_players
 
 
 
@@ -66,12 +69,18 @@ class Board:
                     self.pink_left -= 1
                 else:
                     self.blue_left -= 1
+    
 
-    def winner(self):
-        if self.pink_left <= 0:
-            return PLAYERS[1]
-        elif self.blue_left <= 0:
-            return PLAYERS[0]
+    def winner(self, game):
+        # # winning_menu(game)
+        if self.pink_left <= 0 or self.blue_left == 0:
+        #     # return PLAYERS[1]
+        #     winning_menu(game)
+        # elif self.blue_left <= 0:
+        #     # return PLAYERS[0]
+        #     winning_menu(game)
+        # # self.pink_left = self.blue_left = 12
+            winning_menu(game)
 
         return None
     
@@ -159,4 +168,47 @@ class Board:
             right += 1
 
         return moves
+    
+
+# Gets the image of the winner
+    def get_winner_image(self,p1,p2):
+        # if self.pink_left == 0:
+        #     return "blue"
+        #     # SCREEN.fill(BLACK)
+        #     # SCREEN.blit(VICTORY, (VICTORY_rect))
+        # elif self.blue_left <= 0:
+        #     return "pink"
+            # SCREEN.fill(BLACK)
+            # SCREEN.blit(DEFEAT, (DEFEAT_rect))
+        # PLAYER 1
+        if self.blue_left <= 0:
+            if p1 == ORANGE_PLAYER:
+                SCREEN.fill(BLACK)
+                SCREEN.blit(CYAN_KILLO, (CYAN_KILLO_rect))
+            if p1 == BLUE_PLAYER:
+                SCREEN.fill(BLACK)
+                SCREEN.blit(WHITE_KILLC, (WHITE_KILLC_rect))
+            if p1 == WHITE_PLAYER:
+                SCREEN.fill(BLACK)
+                SCREEN.blit(PINK_KILLW, (PINK_KILLW_rect))
+            if p1 == PINK_PLAYER:
+                SCREEN.fill(BLACK)
+                SCREEN.blit(ORANGE_KILLP, (ORANGE_KILLP_rect))
+        elif self.pink_left <= 0:
+            if p2 == ORANGE_PLAYER:
+                SCREEN.fill(BLACK)
+                SCREEN.blit(PINK_KILLO, (PINK_KILLO_rect))
+            if p2 == BLUE_PLAYER:
+                SCREEN.fill(BLACK)
+                SCREEN.blit(ORANGE_KILLC, (ORANGE_KILLC_rect))
+            if p2 == WHITE_PLAYER:
+                SCREEN.fill(BLACK)
+                SCREEN.blit(CYAN_KILLW, (CYAN_KILLW_rect))
+            if p2 == PINK_PLAYER:
+                SCREEN.fill(BLACK)
+                SCREEN.blit(WHITE_KILLP, (WHITE_KILLP_rect))
+        
+        return 
             
+
+        
