@@ -1,6 +1,11 @@
 import pygame
+import random
 import startpage.button
+from pygame.locals import *
+from pygame import mixer
+import os
 pygame.font.init()
+mixer.init()
 #from startpage.startwindow import PLAYERS 
 #from main import PLAYERS
 
@@ -90,3 +95,16 @@ BLUE_PLAYER = pygame.transform.scale(pygame.image.load('assets/blueplayer_ingame
 WHITE_PLAYER = pygame.transform.scale(pygame.image.load('assets/whiteplayer_ingame.png'), (64, 85))
 
 PLAYERS = []
+
+#Music
+# music1 = pygame.mixer.music.load('music/alien_kill.ogg')
+# music2 = pygame.mixer.music.load('music/gun_kill.ogg')
+# music3 = pygame.mixer.music.load('music/knife_kill.ogg')
+# music4 = pygame.mixer.music.load('music/neck_kill.ogg')
+# GAMEOVER_SOUND = pygame.mixer.music.load('music/game_over_music.ogg')
+
+MUSIC = "/Users/dachanelle/Desktop/CHECKERS-AMONG-US/music"
+# all_mp3 = [os.path.join(MUSIC, f) for f in os.listdir(MUSIC) if f.endswith('.mp3')]
+# RANDOM = random.choice(all_mp3)
+
+# MUSIC = pygame.mixer.music.Sound('music/neck_kill.ogg')
