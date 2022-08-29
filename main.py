@@ -1,9 +1,11 @@
 import pygame
-from checkers.game import Game
+from checkers.game import *
 from checkers.constants import *
 from checkers.board import Board
 from startpage.startwindow import Piece_menu, main_menu
-from startpage.button  import Button
+from startpage.button import Button
+from startpage.startwindow import Piece_menu
+from re import I
 
 FPS = 60
 
@@ -28,7 +30,10 @@ def main():
         clock.tick(FPS)
 
         if game.winner() != None:
-            print(game.winner())
+            # print(game.winner())
+            SCREEN.fill(BLACK)
+            print(game.winner(game.board))
+            # game.board.pink_left = game.board.blue_left = 12
 
         for event in pygame.event.get():
             if event.type == pygame.QUIT:

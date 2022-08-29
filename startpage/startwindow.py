@@ -1,7 +1,9 @@
 import pygame
 import startpage.button  
 from checkers.constants import *
+from checkers.board import *
 pygame.font.init()
+
 
 def Select_players():
         PLAYER1 = Piece_menu()
@@ -54,6 +56,7 @@ def main_menu():
 
 def Piece_menu():
     pygame.display.set_caption("Pieces Menu")
+    pygame.init()
 
     #game variables
     game_paused = False
