@@ -1,9 +1,10 @@
 import pygame
 from .constants import *
-from checkers.board import Board
-from startpage.startwindow import main_menu 
+from .board import Board
+from .winnersPage import winning_menu
+# from startpage.startwindow import main_menu 
 
-class Game:
+class Game: 
     def __init__(self, win):
         self._init()
         self.win = win
@@ -21,7 +22,10 @@ class Game:
         self.valid_moves = {}
 
     def winner(self):
-        return self.board.winner()
+        # return Board.winner()
+        # return self.board.winner(self)
+        return self.board.winner(self)
+        # return winning_menu(self)
 
     def reset(self):
         self._init()
@@ -56,6 +60,7 @@ class Game:
         
         return True
 
+        
     def draw_valid_moves(self, moves):
         for move in moves:
             row, col = move
